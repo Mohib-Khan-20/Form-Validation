@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+</head>
+<style>
+    body {
+        background-color: blueviolet;
+        padding: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 87vh;
+    }
+
+    .container {
+        background-color: white;
+        /* margin-top: 40px; */
+        height: 60vh;
+        width: 30%;
+
+
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    form {
+        text-align: center;
+
+    }
+
+    input {
+        margin: 15px;
+        padding: 14px;
+    }
+    input[type="submit"]{
+        width: 198px;
+    }
+    .error{
+        color: red;
+        margin-bottom: 0;
+        margin-top: 4px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1>Log In </h1>
+        <form action="" onsubmit="return validation()">
+            <input type="text" placeholder="User Name" id="userName"><br>
+            <p id="demo" class="error"></p>
+            <input type="password" placeholder="Password" id="password"><br>
+            <p id="demoo" class="error"></p>
+            <input type="submit"><br>
+        </form>
+    </div>
+
+    <script>
+        let userName= document.getElementById("userName");
+        let password = document.getElementById("password");
+        let flag=1;
+
+        function validation(){
+            if(userName.value==""){
+                document.getElementById("demo").innerHTML="User Name required"
+                flag=0
+            }
+            else if(userName.value.length<4){
+                document.getElementById("demo").innerHTML="User Name too short"
+                flag=0
+            }else{
+                document.getElementById("demo").innerHTML=""
+                flag=1
+            }
+
+
+            if(password.value==""){
+                document.getElementById("demoo").innerHTML="Password must required"
+                flag=0
+            }
+            else{
+                document.getElementById("demoo").innerHTML=""
+                flag=1
+            }
+
+            if(flag){
+                return true
+            }else{
+                return false
+            }
+
+
+
+        }
+    </script>
+</body>
+
+</html>
